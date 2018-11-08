@@ -46,7 +46,7 @@ namespace WingStats
                 }
                 catch(NullReferenceException e)
                 {
-                    //TODO: This is a temporary fix, photo messages don't have any text contnet
+                    //TODO: This is a temporary fix, photo messages don't have any text content
                 }
 
                 wingsForTheFellas.addMessage(messageSender, messageContents);
