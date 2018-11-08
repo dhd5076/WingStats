@@ -49,5 +49,23 @@ namespace WingStats
                 }
             }
         }
+
+        /// <summary>
+        /// Prints all collected statistics
+        /// </summary>
+        public void printStats()
+        {
+            int totalWingsSent = 0;
+
+            Console.WriteLine("Processing Stats....");
+            Console.WriteLine("Total Messages Sent: " + totalMessagesSent);
+            foreach(User user in members)
+            {
+                Console.WriteLine("User: " + user.getName() + "\n Total Wings Sent: " + user.getTotalWingSent());
+                totalWingsSent += user.getTotalWingSent();
+            }
+
+            Console.WriteLine("Total Wing Messages: " + totalWingsSent);
+        }
     }
 }

@@ -33,7 +33,8 @@ namespace WingStats
         /// <param name="messageContents">Contents of the message sent</param>
         public void addMessage(string messageContents)
         {
-            if(messageContents.Contains("\u00f0\u009f\u008d\u0097"))
+            Console.Write('.');
+            if(messageContents.Contains("0x0001F357"))
             {
                 wingsSent++;
             }
