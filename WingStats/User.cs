@@ -41,12 +41,21 @@ namespace WingStats
         }
         
         /// <summary>
-        /// 
+        /// Get accessor for the name variable
         /// </summary>
         /// <returns>The user's name</returns>
         public string getName()
         {
             return this.name;
+        }
+
+        /// <summary>
+        /// Get the number of wings this user has sent
+        /// </summary>
+        /// <returns>The number of wings this user has sent</returns>
+        public int getTotalWingSent()
+        {
+            return this.wingsSent;
         }
     }
 }
