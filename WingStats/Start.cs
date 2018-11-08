@@ -27,6 +27,8 @@ namespace WingStats
             ParseParticipants();
             ParseMessages();
 
+            wingsForTheFellas.printStats();
+   
             Console.Read();
         }
 
@@ -42,7 +44,7 @@ namespace WingStats
                 string messageContents = "";
                 try
                 {
-                    messageContents = message.GetElementsByTagName("content")[0].ToString();
+                    messageContents = message.GetElementsByTagName("content")[0].InnerText;
                 }
                 catch(NullReferenceException e)
                 {
@@ -74,9 +76,9 @@ namespace WingStats
         public static void ParseConversationJSON()
         {
             Console.WriteLine("Parsing raw data...");
-            string wingStatJSON = File.ReadAllText("message.json");
+            string wingStatJSON = File.ReadAllText("data/message.json");
             RAWConvoObject = JsonConvert.DeserializeXmlNode(wingStatJSON, "Root");
-            Console.WriteLine("Done.");
+            Console.WriteLine("Done. \n Press any key to exit");
         }
     }
 }
