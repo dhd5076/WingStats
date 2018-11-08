@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="data\message.json" />
     <None Include="message.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

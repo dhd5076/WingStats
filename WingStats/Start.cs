@@ -24,19 +24,48 @@ namespace WingStats
             ParseConversationJSON();
             wingsForTheFellas = new Conversation("Wings For The Fellas");
 
-
-            foreach(XmlNode participant in RAWConvoObject.GetElementsByTagName("participants"))
-            {
-                Console.WriteLine(participant.InnerText);
-            }
-
             ParseParticipants();
+            ParseMessages();
+
             Console.Read();
         }
 
+        /// <summary>
+        /// Get all participants and add them to the conversation object
+        /// </summary>
+        public static void ParseMessages()
+        {
+            Console.WriteLine("Parsing messages...");
+            foreach (XmlElement message in RAWConvoObject.GetElementsByTagName("messages"))
+            {
+                string messageSender = message.GetElementsByTagName("sender_name")[0].InnerText;
+                string messageContents = "";
+                try
+                {
+                    messageContents = message.GetElementsByTagName("content")[0].ToString();
+                }
+                catch(NullReferenceException e)
+                {
+                    //TODO: This is a temporary fix, photo messages don't have any text contnet
+                }
+
+                wingsForTheFellas.addMessage(messageSender, messageContents);
+            }
+            Console.WriteLine("Done.");
+        }
+
+        /// <summary>
+        /// Get all participants and add them to the conversation object
+        /// </summary>
         public static void ParseParticipants()
         {
-            
+            Console.WriteLine("Parsing users...");
+            foreach (XmlNode participant in RAWConvoObject.GetElementsByTagName("participants"))
+            {
+                Console.WriteLine("User Found: " + participant.InnerText);
+                wingsForTheFellas.addUser(participant.InnerText);
+            }
+            Console.WriteLine("Done.");
         }
 
         /// <summary>
@@ -44,9 +73,10 @@ namespace WingStats
         /// </summary>
         public static void ParseConversationJSON()
         {
+            Console.WriteLine("Parsing raw data...");
             string wingStatJSON = File.ReadAllText("message.json");
             RAWConvoObject = JsonConvert.DeserializeXmlNode(wingStatJSON, "Root");
-            
+            Console.WriteLine("Done.");
         }
     }
 }

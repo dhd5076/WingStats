@@ -33,7 +33,20 @@ namespace WingStats
         /// <param name="messageContents">Contents of the message sent</param>
         public void addMessage(string messageContents)
         {
+            if(messageContents.Contains("\u00f0\u009f\u008d\u0097"))
+            {
+                wingsSent++;
+            }
             this.messages.Add(messageContents);
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>The user's name</returns>
+        public string getName()
+        {
+            return this.name;
         }
     }
 }
