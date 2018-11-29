@@ -78,7 +78,7 @@ namespace WingStats
             Console.WriteLine("Parsing raw data...");
             string wingStatJSON = File.ReadAllText("data/message.json");
             RAWConvoObject = JsonConvert.DeserializeXmlNode(wingStatJSON, "Root");
-            Console.WriteLine("Done. \n Press any key to exit");
+            Console.WriteLine("Done.");
         }
     }
 }

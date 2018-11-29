@@ -61,11 +61,12 @@ namespace WingStats
             Console.WriteLine("Total Messages Sent: " + totalMessagesSent);
             foreach(User user in members)
             {
-                Console.WriteLine("User: " + user.getName() + "\n Total Wings Sent: " + user.getTotalWingSent());
+                Console.WriteLine("User: " + user.getName() + "\n Total Wings Sent: " + user.getTotalWingSent() + "\n Total Messages Sent: " + user.getTotalMessagesSent());
                 totalWingsSent += user.getTotalWingSent();
             }
 
             Console.WriteLine("Total Wing Messages: " + totalWingsSent);
+            Console.WriteLine("Done. \n Press any key to exit");
         }
     }
 }

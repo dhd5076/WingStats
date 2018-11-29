@@ -34,7 +34,7 @@ namespace WingStats
         public void addMessage(string messageContents)
         {
             Console.Write('.');
-            if(messageContents.Contains("0x0001F357"))
+            if(messageContents.Contains("\u00f0\u009f\u008d\u0097"))
             {
                 wingsSent++;
             }
@@ -57,6 +57,15 @@ namespace WingStats
         public int getTotalWingSent()
         {
             return this.wingsSent;
+        }
+
+        /// <summary>
+        /// Get the number of wings this user has sent
+        /// </summary>
+        /// <returns>The number of wings this user has sent</returns>
+        public int getTotalMessagesSent()
+        {
+            return this.messages.Count;
         }
     }
 }
