@@ -1,4 +1,4 @@
-# wing-stats
+# WingStats
 Stats About Wings
 
 
